@@ -3,6 +3,44 @@
 <html>
     <head>
     
+    <script>
+	
+	function showUser() {
+	  global_ = "";
+	   //alert("mighty");
+	  	//cordova.plugins.notification.badge.set(50, showToast);
+	str = "not"
+    if (str == "") {
+        //document.getElementById("txtHint").innerHTML = "";
+		 alert("mighty");
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 //document.getElementById("txtHint").innerHTML = this.responseText;
+			 global_ = this.responseText
+				alert("global_");
+			 
+				cordova.plugins.notification.badge.set(50, showToast);
+				
+            }
+        };
+        xmlhttp.open("GET","http://online.shiftclocker.com/message-count.php?q="+str,true);
+        xmlhttp.send();
+    }
+	
+ 
+}
+	</script>
+    
+    
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
       <meta http-equiv="refresh" content="100;URL='http://shiftclocker.com/badge/'" />    
@@ -133,42 +171,6 @@
         </script>
    
         <script type="text/javascript">
-		
-		function showUser() {
-	  global_ = "";
-	  
-	  	//cordova.plugins.notification.badge.set(50, showToast);
-	
-    if (str == "") {
-        //document.getElementById("txtHint").innerHTML = "";
-		//alert("mighty");
-        return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                 //document.getElementById("txtHint").innerHTML = this.responseText;
-			 global_ = this.responseText
-				 // alert(global_);
-			 
-				cordova.plugins.notification.badge.set(50, showToast);
-				
-            }
-        };
-        xmlhttp.open("GET","http://online.shiftclocker.com/message-count.php?q="+str,true);
-        xmlhttp.send();
-    }
-	
- 
-}
-		
-		
 		
             var dialog;
 
