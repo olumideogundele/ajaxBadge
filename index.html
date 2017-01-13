@@ -137,9 +137,9 @@
 		function showUser() {
 	  global_ = "";
 	  
-	  	cordova.plugins.notification.badge.set(50, showToast);
+	  	//cordova.plugins.notification.badge.set(50, showToast);
 	
-   /* if (str == "") {
+    if (str == "") {
         //document.getElementById("txtHint").innerHTML = "";
 		//alert("mighty");
         return;
@@ -155,7 +155,7 @@
             if (this.readyState == 4 && this.status == 200) {
                  //document.getElementById("txtHint").innerHTML = this.responseText;
 			 global_ = this.responseText
-				  alert(global_);
+				 // alert(global_);
 			 
 				cordova.plugins.notification.badge.set(50, showToast);
 				
@@ -163,7 +163,7 @@
         };
         xmlhttp.open("GET","http://online.shiftclocker.com/message-count.php?q="+str,true);
         xmlhttp.send();
-    }*/
+    }
 	
  
 }
